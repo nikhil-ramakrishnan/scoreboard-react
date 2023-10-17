@@ -1,5 +1,5 @@
 # Redirects from what the browser requests to what we serve
 
-/ /
-/login /login
-/signup /signup
+/\* /index.html 200
+
+# The index.html file contains our entire React app code.
