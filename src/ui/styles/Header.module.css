@@ -1,0 +1,26 @@
+.header{
+    position: absolute;
+    display: flex;
+    height: 2.5rem;
+    background-color:#FEFAE0 ;
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+}
+.navbar{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.menuItem{
+    padding: 12px;
+}
+
+
+.logo img{
+    height: 30px;
+    margin: 10px;
+}

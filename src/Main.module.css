@@ -1,0 +1,27 @@
+.main{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    top: 2.5rem;
+    height: calc(100vh - 2.5rem);
+    justify-content: center
+;
+}
+.container{
+    padding: 12px;
+    background-color: #FEFAE0;
+    width: 60%;
+    height: auto;
+    border-radius: 18px;
+}
+
+
+
+
+.containerTitle{
+    display: flex;
+    margin: 0px 10px 0px 10px;
+    justify-content: space-between;
+}
