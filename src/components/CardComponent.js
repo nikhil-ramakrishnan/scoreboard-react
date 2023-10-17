@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./CardComponent.module.css";
-import duklogo from "../assets/duklogo.png";
 const CardComponent = (props) => {
   return (
     <div
