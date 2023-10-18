@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import classes from "./UserPanel.module.css";
+import cookies from "js-cookie";
 import { Link } from "react-router-dom";
+import axios from "axios";
+axios.defaults.withCreditials = true;
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -15,18 +19,40 @@ const LoginForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login submitted:", formData);
-    setFormData({
-      email: "",
-      password: "",
-    });
+    try {
+      const response = await fetch(
+        "https://sports-scoreboard.cyclic.cloud/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        const rawCookie = await response.headers.get("Set-Cookie");
+        console.log("Received cookie:", rawCookie);
+
+        if (rawCookie) {
+          const cookieValue = rawCookie.split(";")[0].split("=")[1];
+          console.log("Received cookie:", cookieValue);
+        }
+      } else {
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   };
 
   return (
     <div className={classes.main}>
       <div className={classes.container}>
+        {isUserLoggedIn && <div>Kaduvaaye kiduva pidikkunne... ambambo</div>}
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <div className={classes.formGroup}>
