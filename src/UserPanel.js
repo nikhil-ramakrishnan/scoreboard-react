@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "./UserPanel.module.css";
-// import cookies from "js-cookie";
+import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import axios from "axios";
 axios.defaults.withCreditials = true;
@@ -34,14 +34,15 @@ const LoginForm = () => {
       );
 
       if (response.ok) {
-        const rawCookie = await response.headers.get("Set-Cookie");
+        const rawCookie = response.headers.get("Set-Cookie");
+        Cookies.set("Test Cookie", "Hello");
         console.log("Received cookie:", rawCookie);
         setIsUserLoggedIn(true);
 
-        if (rawCookie) {
-          const cookieValue = rawCookie.split(";")[0].split("=")[1];
-          console.log("Received cookie:", cookieValue);
-        }
+        // if (rawCookie) {
+        //   const cookieValue = rawCookie.split(";")[0].split("=")[1];
+        //   // console.log("Received cookie:", cookieValue);
+        // }
       } else {
         console.error("Login failed");
       }
