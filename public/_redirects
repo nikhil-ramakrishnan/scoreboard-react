@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 /\* /index.html 200
+=======
+# Redirects from what the browser requests to what we serve
+
+/* /index.html 200
+>>>>>>> 31cfdb04ad42eb2c3e0b01031683579c7e7559ec
