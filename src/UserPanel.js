@@ -38,6 +38,7 @@ const LoginForm = () => {
       if (response.ok) {
         const token = await Cookies.get("jwt");
         console.log(token);
+
         setIsUserLoggedIn(true);
 
         // if (rawCookie) {

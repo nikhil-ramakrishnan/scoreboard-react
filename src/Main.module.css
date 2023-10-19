@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     left: 0;
+    background-color: #2b2d42;
     top: 2.5rem;
     height: calc(100vh - 2.5rem);
     justify-content: center
@@ -11,7 +12,7 @@
 }
 .container{
     padding: 12px;
-    background-color: #FEFAE0;
+    background-color: #e0e1dd;
     width: 100%;
     height: auto;
     max-width: 700px;

@@ -36,6 +36,7 @@ const Main = () => {
             pos={index}
             key={team.name}
             name={team.name}
+            color={team.color}
             score={team.score}
           />
         ))}

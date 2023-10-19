@@ -4,7 +4,7 @@ const CardComponent = (props) => {
   return (
     <div
       className={classes.cardContainer}
-      style={{ "background-color": "#D9D9D9" }}
+      style={{ "background-color": props.color }}
     >
       <div className={classes.teamIconAndNameContainer}>
         <div className={classes.teamIcon}>
