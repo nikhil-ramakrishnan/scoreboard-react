@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import classes from "./UserPanel.module.css";
-import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
-import axios from "axios";
-axios.defaults.withCreditials = true;
+import Cookies from "universal-cookie";
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -22,21 +20,24 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://sports-scoreboard.cyclic.cloud/users/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      // const response = await axios.post(
+      //   "https://sports-scoreboard.cyclic.cloud/users/login",
+      //   JSON.stringify(formData),
+      //   { withCredentials: true }
+      // );
+
+      const response = await fetch("http://localhost:5000/users/login", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
-        const rawCookie = response.headers.get("Set-Cookie");
-        Cookies.set("Test Cookie", "Hello");
-        console.log("Received cookie:", rawCookie);
+        const token = await Cookies.get("jwt");
+        console.log(token);
         setIsUserLoggedIn(true);
 
         // if (rawCookie) {
