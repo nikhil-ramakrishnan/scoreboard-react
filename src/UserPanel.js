@@ -40,6 +40,7 @@ const LoginForm = () => {
         console.log(token);
 
         setIsUserLoggedIn(true);
+        
 
         // if (rawCookie) {
         //   const cookieValue = rawCookie.split(";")[0].split("=")[1];
