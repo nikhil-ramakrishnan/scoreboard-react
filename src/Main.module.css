@@ -4,11 +4,10 @@
     align-items: center;
     width: 100%;
     left: 0;
-    background-color: #2b2d42;
+    background-color: #161a1d;
     top: 2.5rem;
     height: calc(100vh - 2.5rem);
-    justify-content: center
-;
+    justify-content: center;
 }
 .container{
     padding: 12px;
@@ -17,10 +16,19 @@
     height: auto;
     max-width: 700px;
     border-radius: 18px;
+    z-index: 10;
 }
 
 .containerTitle{
+    border-radius: 10px;
     display: flex;
+    background-color: #161a1d;
     margin: 0px 10px 0px 10px;
     justify-content: space-between;
+}
+
+.containerTitle p{
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
+    color: white
 }
